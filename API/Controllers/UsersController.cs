@@ -1,11 +1,12 @@
 ﻿using API.Data;
 using API.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")] 
+    [Route("api/[controller]")]
     public class UsersController
     {
         private readonly DataContext _context;
@@ -14,10 +15,17 @@ namespace API.Controllers
             _context = context;
         }
 
-        [HttpGet]
-        public ActionResult<IEnumerable<User>> GetUsers()
+        // TODO: Change it later to search by username instead of id.
+        [HttpGet("{id}")]
+        public async Task<ActionResult<User>> GetUser(int id)
         {
-            var users = _context.Users.ToList();
+            return await _context.Users.FindAsync(id);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<User>>> GetAllUsers()
+        {
+            var users = await _context.Users.ToListAsync();
             return users;
         }
     }
