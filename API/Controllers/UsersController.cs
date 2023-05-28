@@ -16,9 +16,10 @@ namespace API.Controllers
         }
 
         // TODO: Change it later to search by username instead of id.
+        // TODO: Handle no Database connection error.
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id)
-        {
+        {   
             return await _context.Users.FindAsync(id);
         }
 
