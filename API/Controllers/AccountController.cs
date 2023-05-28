@@ -1,15 +1,15 @@
 ﻿using API.Data;
 using API.DTOs;
 using API.Entities;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
 using System.Text;
 
 namespace API.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class AccountController
+    public class AccountController : BaseAPIController
     {
         private readonly DataContext _context;
         public AccountController(DataContext context)
@@ -17,8 +17,7 @@ namespace API.Controllers
             _context = context;
         }
 
-        // TODO: Take JSON instead of parameters
-        [HttpPost("register")] // POST: api/account/register?username=admin&password=admin
+        [HttpPost("register")] // POST: api/account/register
         public async Task<ActionResult<User>> Register(RegisterDto registerDto)
         {
             using var hmac = new HMACSHA512();
