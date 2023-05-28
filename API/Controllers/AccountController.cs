@@ -1,4 +1,5 @@
 ﻿using API.Data;
+using API.DTOs;
 using API.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Cryptography;
@@ -18,15 +19,15 @@ namespace API.Controllers
 
         // TODO: Take JSON instead of parameters
         [HttpPost("register")] // POST: api/account/register?username=admin&password=admin
-        public async Task<ActionResult<User>> Register(string username, string password)
+        public async Task<ActionResult<User>> Register(RegisterDto registerDto)
         {
             using var hmac = new HMACSHA512();
             var user = new User
             {
-                Username = username,
+                Username = registerDto.Username,
                 // TODO: remove password from db later, there's no need for it
-                Password = password,
-                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password))
+                Password = registerDto.Password,
+                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password))
             };
 
             _context.Users.Add(user);
