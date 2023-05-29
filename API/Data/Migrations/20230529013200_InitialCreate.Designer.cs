@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230528183339_InitialCreate")]
+    [Migration("20230529013200_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -25,10 +25,10 @@ namespace API.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Password")
-                        .HasColumnType("TEXT");
-
                     b.Property<byte[]>("PasswordHash")
+                        .HasColumnType("BLOB");
+
+                    b.Property<byte[]>("PasswordSalt")
                         .HasColumnType("BLOB");
 
                     b.Property<string>("Username")
