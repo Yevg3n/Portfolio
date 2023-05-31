@@ -8,7 +8,31 @@
       <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">Resumé</a>
       <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">About</a>
       <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">Code Samples</a>
-      <button class="btn btn-outline-success" type="submit">Login</button>
+
+      <div *ngIf="loggedIn" class="dropdown py-2" dropdown>
+        <a class="dropdown-toggle link-body-emphasis text-decoration-none" dropdownToggle>Logged In</a>
+        <div class="dropdown-menu" *dropdownMenu>
+            <a class="dropdown-item">Edit Profile</a>
+            <a class="dropdown-item" (click)="logout()">Logout</a>
+        </div>
+      </div>
+
+      <form *ngIf="!loggedIn" #loginForm="ngForm" (ngSubmit)="login()" class="d-flex" autocomplete="off">
+        <input
+                name="username"
+                [(ngModel)]="model.username"
+                class="form-control me-2" 
+                type="text" 
+                placeholder="Username">
+            <input 
+                name="password"
+                [(ngModel)]="model.password"
+                class="form-control me-2" 
+                type="password" 
+                placeholder="Password">
+        <button class="btn btn-outline-success" (click)="login()" type="submit">Login</button>
+      </form>
+      
     </nav>
 </div>
 

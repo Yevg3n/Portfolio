@@ -1,0 +1,7 @@
+.dropdown-toggle, .dropdown-item{
+    cursor: pointer;
+}
+
+.link-body-emphasis {
+    color: RGBA(var(--bs-emphasis-color-rgb),var(--bs-link-opacity,1))!important;
+}
