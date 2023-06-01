@@ -11,7 +11,7 @@ export class NavbarComponent implements OnInit{
   model: any = {}
   loggedIn = false;
 
-  constructor(private accountService: AccountService){}
+  constructor(private accountService: AccountService, private router: Router){}
   
   ngOnInit(): void {
     this.getCurrentUser();
@@ -25,13 +25,7 @@ export class NavbarComponent implements OnInit{
   }
   
   login(){
-    this.accountService.login(this.model).subscribe({
-      next: response => {
-        console.log(response);
-        this.loggedIn = true;
-      },
-      error: error => console.log(error)
-    })
+    this.router.navigateByUrl('login')
   }
 
   logout(){
