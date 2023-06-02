@@ -10,13 +10,15 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HomeComponent } from './home/home.component';
+import { ResumeComponent } from './resume/resume.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    ResumeComponent
   ],
   imports: [
     BrowserModule,
