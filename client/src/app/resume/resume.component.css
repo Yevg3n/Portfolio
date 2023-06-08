@@ -1,0 +1,267 @@
+:host{
+    --header-height: 3rem;
+  
+  /* Color */
+  --title-color: #0B0A0A;
+  --text-color: #403A3A;
+  --text-color-light: #707070;
+  --container-color: #FAFAFA;
+  --container-color-alt: #F0EFEF;
+  --body-color: #FCFCFC;
+
+  /* Font and Typography */
+  --body-font: 'Poppins', sans-serif;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .875rem;
+  --smaller-font-size: .813rem;
+
+  /* Font weight */
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /* Margenes */
+  --mb-1: .5rem;
+  --mb-2: 1rem;
+  --mb-3: 1.5rem;
+
+  /* z index */
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+.resume_container{
+  padding: 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+h1,h2,h3,ul,p{
+    margin: 0;
+}
+
+h1,h2,h3{
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+}
+
+ul{
+    list-style: none;
+    padding-inline-start: 0px;
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+/* Basic Layout */
+.bd-container{
+    max-width: auto;
+}
+
+.bd-grid{
+    display: grid;
+    gap: 1.5rem;
+}
+
+/* Resume left and right side */
+.resume{
+    display: grid;
+    grid-template-columns: .5fr 1fr;
+    background-color: var(--container-color);
+    box-shadow: 0 0 8px rgba(13,12,12,.15);
+}
+
+.resume_left{
+    padding: 0 1.5rem;
+    background-color: var(--container-color-alt);
+}
+
+.resume_right{
+    padding: 0 1.5rem;
+}
+
+/* Intro section */
+.intro{
+    position: relative;
+}
+
+.intro_container{
+    gap: 1.5rem;
+}
+
+.intro_data{
+    gap: 1rem;
+    text-align: center;
+}
+
+.intro_img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    justify-self: center;
+    margin-bottom: var(--mb-1);
+}
+
+.intro_title{
+    font-size: var(--h1-font-size);
+}
+
+.intro_profession{
+    font-size: var(--normal-font-size);
+    margin-bottom: var(--mb-1);
+}
+
+.intro_address{
+    gap: 1rem;
+}
+
+.intro_information{
+    display: flex;
+    align-items: center;
+    font-size: small;
+}
+
+.intro_icon{
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+.intro_button-download{
+    display: inline-block;
+    border: 2px solid var(--text-color);
+    color: var(--title-color);
+    padding: 1rem 2rem;
+    border-radius: .25rem;
+    transition: .3s;
+    font-weight: var(--font-medium);
+    margin-top: var(--mb-3);
+}
+
+.intro_button-download:hover{
+    background-color: var(--text-color);
+    color: var(--container-color);
+}
+
+/* Profile section */
+.profile_description{
+    text-align: initial;
+}
+
+/* Section CSS */
+.section{
+    padding: 1.5rem 0;
+}
+
+.section_title{
+    font-size: var(--h2-font-size);
+    color: var(--title-color);
+    font-weight: var(--font-semi-bold);
+    text-transform: uppercase;
+    letter-spacing: .35rem;
+    text-align: initial;
+    margin-bottom: var(--mb-3);
+}
+
+/* Education & Experience*/
+.experience_content{
+    display: flex;
+}
+
+.experience_time{
+    padding-right: 1rem;
+}
+
+.timeline_rounder{
+    position: relative;
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-color: var(--text-color-light);
+    border-radius: 50%;
+    margin-top: .25rem;
+}
+
+.timeline_line{
+    display: block;
+    width: 2px;
+    height: 110%;
+    background-color: var(--text-color-light);
+    transform: translate(7px, 0);
+}
+
+.experience_data{
+    gap: .5rem;
+}
+
+.experience_title{
+    font-size: var(--h3-font-size);
+}
+
+.experience_org{
+    font-size: var(--small-font-size);
+    color: var(--title-color);
+}
+
+.education_year{
+    font-size: var(--small-font-size);
+}
+
+
+/* Skills section */
+.skills_content{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+}
+
+.skills_name{
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--mb-1);
+}
+
+.skills_circle{
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background-color: var(--text-color);
+    border-radius: 50%;
+    margin-right: .75rem;
+}
+
+/* Certificates section */
+.certificate_title{
+    font-size: var(--h3-font-size);
+    margin-bottom: var(--mb-1);
+}
+
+/* Interests section */
+.interests_container{
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.interests_content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.interests_icon{
+    font-size: 1.5rem;
+    color: var(--text-color-light);
+    margin-bottom: .25rem;
+}
+
+
+
+
+
